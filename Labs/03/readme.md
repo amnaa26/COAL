@@ -1,5 +1,5 @@
 ## Task 01:
-### Code:
+#### Code:
 ````.asm
 include irvine32.inc
 .data
@@ -16,7 +16,7 @@ end main
 ````
 
 ## Task 02:
-### Code:
+#### Code:
 `````.asm
 include irvine32.inc
 .data
@@ -32,7 +32,7 @@ end main
 `````
 
 ## Task 03:
-### Code:
+#### Code:
 `````.asm
 include irvine32.inc
 .data
@@ -45,7 +45,7 @@ end main
 `````
 
 ## Task 04:
-### Code:
+#### Code:
 `````.asm
 include irvine32.inc
 .data
@@ -58,7 +58,7 @@ include irvine32.inc
 `````
 
 ## Task 05:
-### Code:
+#### Code:
 `````.asm
 include irvine32.inc
 .data
@@ -85,7 +85,7 @@ end main
 `````
 
 ## Task 06:
-### Code:
+#### Code:
 `````.asm
 include irvine32.inc
 .data
@@ -112,7 +112,7 @@ end main
 `````
 
 ## Task 07:
-### Code:
+#### Code:
 `````.asm
 include irvine32.inc
 .data
@@ -126,7 +126,7 @@ end main
 `````
 
 ## Task 08:
-### Code:
+#### Code:
 `````.asm
 include irvine32.inc
 .data
@@ -134,7 +134,7 @@ string BYTE 50 DUP(?)
 `````
 
 ## Task 09:
-### Code:
+#### Code:
 `````.asm
 include irvine32.inc
 .data
@@ -142,7 +142,7 @@ string BYTE 500 DUP(“TEST”)
 `````
 
 ## Task 10:
-### Code:
+#### Code:
 `````.asm
 include irvine32.inc
 .data
