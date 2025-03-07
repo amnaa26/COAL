@@ -1,4 +1,7 @@
 ## Question-3:
+
+if ```arrB``` were ```WORD``` or ```DWORD```, we would change registers from ```al``` to ```ax``` or ```eax``` respectively.
+
 ```.asm
 include irvine32.inc
 
