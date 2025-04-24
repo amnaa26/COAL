@@ -35,10 +35,10 @@ main proc
 	jmp end_loop
 
 	not_equal:
-			mov edx, offset msg3
-			call writestring
-			call crlf 
-			jmp end_loop
+		mov edx, offset msg3
+		call writestring
+		call crlf 
+		jmp end_loop
 
 	end_loop:
 		exit
@@ -47,7 +47,8 @@ main proc
 
 ```
 #### If the integers are equal:
-![image](https://github.com/user-attachments/assets/084aa440-7e30-4bf5-a546-690db9501aca)
+![image](https://github.com/user-attachments/assets/d7cd6acf-b18a-4084-96d9-a2bca555a880)
+
 
 #### If the integers are not equal:
 ![image](https://github.com/user-attachments/assets/eb072948-f866-4b86-b3d8-bbb7dcc34922)
