@@ -229,4 +229,65 @@ end main
 ![image](https://github.com/user-attachments/assets/e3587074-fc74-4348-b3fe-82ffc6280da5)
 
 ## Question-5:
+```.asm
+include irvine32.inc
 
+.data
+	arr DWORD  10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+	counter dword ?
+	temp dword ?
+
+.code
+	BubbleSort proc
+		enter 0, 0
+		mov esi, [ebp+12]
+		mov ecx, [ebp+8]
+		dec ecx
+		outer_loop:
+			mov esi, [ebp+12]
+			mov edi, esi
+			add edi, 4
+			mov counter,  ecx
+			mov ecx, [ebp+8]
+			dec ecx
+			inner_loop:
+				mov eax, [esi]
+				cmp eax, [edi]
+				jle no_swap
+				xchg eax, [edi]
+				mov [esi], eax
+			no_swap:
+				add esi, 4
+				add edi, 4
+				loop inner_loop
+
+			mov ecx, counter
+			loop outer_loop
+
+		leave
+		ret
+	BubbleSort endp
+
+
+main proc
+	push offset arr
+	push lengthof arr
+	call BubbleSort
+
+	mov esi, offset arr
+	mov ecx, lengthof arr
+	print_loop:
+		mov eax, [esi]
+		call writedec
+		add esi, type arr
+		mov eax, 32
+		call writechar
+	loop print_loop
+	call crlf
+
+end_main:
+exit
+main endp
+end main
+```
+![image](https://github.com/user-attachments/assets/0388a82d-5d27-49aa-9188-a58275edc19d)
