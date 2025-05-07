@@ -239,4 +239,138 @@ end_main:
 ![image](https://github.com/user-attachments/assets/838c844f-5948-4080-944e-70d26a54cfcc)
 ![image](https://github.com/user-attachments/assets/98243f70-1fa3-40e7-9d93-ca1b07efef23)
 
+## Question-6:
+```.asm
+include irvine32.inc
+
+.data
+	arr WORD 10, 4, 7, 14, 299, 156, 3, 19, 29, 300, 20
+	count dword ?
+
+.code
+main proc
+	mov ecx, lengthof arr - 1
+	outer_loop:
+		mov count, ecx
+		mov esi, 0
+		mov edi, type arr
+		mov ecx, lengthof arr - 1
+
+		inner_loop:
+			mov ax, arr[edi]
+			cmp ax, arr[esi]
+			jge no_swap
+			xchg ax, arr[esi]
+			mov arr[edi], ax
+
+			no_swap:
+				add esi, type arr
+				add edi, type arr
+				loop inner_loop
+
+		mov ecx, count
+		loop outer_loop
+
+	mov ecx, lengthof arr
+	mov esi, 0
+	print_loop:
+		movzx eax, arr[esi]
+		call writedec
+		add esi, type arr
+		mov eax, 32
+		call writechar
+
+		loop print_loop
+	
+	call crlf
+
+	exit
+	main endp
+	end main
+```
+![image](https://github.com/user-attachments/assets/f19c2be3-0f20-4f4e-83d4-ba7597122751)
+
+## Question-7:
+```.asm
+include irvine32.inc
+
+.data
+	arr byte "Monday", 0, 0, 0, 0,
+			 "Tuesday", 0, 0, 0,
+			 "Wednesday", 0,
+			 "Thursday", 0, 0,
+			 "Friday", 0, 0, 0, 0,
+			 "Saturday", 0, 0,
+			 "Sunday", 0, 0, 0, 0
+	
+
+.code
+main proc
+	call readint
+	mov ebx, 10
+	imul ebx
+	mov ebx, eax
+	sub ebx, 10
+	mov eax, ebx
+
+	mov esi, ebx
+	mov ecx, 10
+	call crlf
+	print_loop:
+		movzx eax, arr[esi]
+		inc esi
+		call writechar
+		loop print_loop
+
+	
+
+	exit
+	main endp
+	end main
+```
+![image](https://github.com/user-attachments/assets/c0b9d91a-b336-4555-9560-5509bb94e52a)
+
+## Question-8:
+```.asm
+include irvine32.inc
+
+.data
+	msg1 byte "Entered input is an alphabet", 0
+	msg2 byte "Entered input is NOT an alphabet", 0
+	
+
+.code
+main proc
+	call readchar
+	call writechar
+	call crlf
+	cmp al, "A"
+	jl lower_check
+	cmp ah, "Z"
+	jle is_alpha
+
+	lower_check:
+		cmp al, "a"
+		jl not_alpha
+		cmp al, "z"
+		jle is_alpha
+
+	is_alpha:
+		mov edx, offset msg1
+		call writestring
+		call crlf
+		jmp end_main
+
+	not_alpha:
+		mov edx, offset msg2
+		call writestring
+		call crlf
+
+end_main:
+	exit
+	main endp
+	end main
+```
+![image](https://github.com/user-attachments/assets/062b7695-b876-461e-a548-9ed88001bca4)
+![image](https://github.com/user-attachments/assets/67c50e9a-e338-437d-b02f-7cb1d57754cf)
 
