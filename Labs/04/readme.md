@@ -39,8 +39,8 @@ include irvine32.inc
 
 .code
 main proc
-  movzs eax, varB
-  movzs ebx, varW
+  movzx eax, varB
+  movsx ebx, varW
   mov ecx, varD
   call dumpregs
 exit
