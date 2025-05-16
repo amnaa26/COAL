@@ -7,9 +7,7 @@ include irvine32.inc
   var2 sbyte -11
 .code
 main proc
-  movz eax, var2
-  call WriteInt
-  call Crlf
+ ;nothing here
 exit
 main endp
 end main
@@ -23,9 +21,7 @@ include irvine32.inc
   var sdword -2147483648
 .code
 main proc
-  mov eax, var
-  call WriteInt
-  call Crlf
+  ;nothing
 exit
 main endp
 end main
@@ -77,12 +73,15 @@ main proc
   add ebx, e
   add ebx, d
   mov eax, ebx
-  call WriteInt
+  call WriteHex
   call Crlf
 exit
 main endp
 end main
 `````
+![image](https://github.com/user-attachments/assets/e6c6a729-88b2-42ae-a641-4a2581b46b1a)
+
+
 
 ## Task 06:
 #### Code:
@@ -104,12 +103,17 @@ main proc
   add ebx, e
   add ebx, d
   mov eax, ebx
+  call WriteBin
+  call crlf
   call WriteInt
   call Crlf
+  call dumpregs
 exit
 main endp
 end main
 `````
+![image](https://github.com/user-attachments/assets/f24bf6fd-d554-4d41-8a88-f5105c5d62b9)
+
 
 ## Task 07:
 #### Code:
