@@ -24,6 +24,8 @@ exit
 main endp
 end main
 ```
+![image](https://github.com/user-attachments/assets/22681c11-a198-4171-81ea-ee9e5b89db84)
+
 
 ***
 ## Question-3
@@ -45,6 +47,8 @@ exit
 main endp
 end main
 ```
+![image](https://github.com/user-attachments/assets/469f2dd6-7f1e-4662-b4c8-028124ddf6c1)
+
 
 ***
 
@@ -80,8 +84,92 @@ exit
 main endp
 end main
 ```
+![image](https://github.com/user-attachments/assets/71a10eaa-2945-4e35-90bd-f4661bd8ce69)
+
 
 ***
 
+## Question-6:
+```.asm
+include irvine32.inc
 
-  
+.data
+	SecondsInDay = 24 * 60 * 60
+.code
+main proc
+	mov eax, SecondsInDay
+	call writedec
+exit
+main endp
+end main
+```
+![image](https://github.com/user-attachments/assets/7cab9828-b2f3-4fdb-9c15-eb79645b6783)
+
+
+***
+
+## Question-7:
+```.asm
+include irvine32.inc
+
+.data
+	A word 0FF10h
+	B word 0E10Bh
+.code
+main proc
+	; swap
+	movzx eax, A
+	xchg ax, B
+	mov A, ax
+
+	; print
+	movzx eax, A
+	call writehex
+	call crlf
+	movzx eax, B
+	call writehex
+exit
+main endp
+end main
+```
+![image](https://github.com/user-attachments/assets/5a1550d3-6ccc-41a2-903c-1eb450721858)
+
+
+***
+
+## Question-8:
+```.asm
+include irvine32.inc
+
+.data
+	val1 byte 10h
+	val2 word 8000h
+	val3 dword 0ffffh
+	val4 word 7fffh
+.code
+main proc
+	; part i
+	inc val2
+	movzx eax, val2
+	call writedec
+
+	call crlf
+
+	; part ii
+	mov eax, 67279h
+	sub eax, val3
+	call writeint
+
+	call crlf
+
+	; part iii
+	movzx eax, val2
+	sub ax, val4
+	mov val4, ax
+	call writeint
+
+exit
+main endp
+end main
+```
+![image](https://github.com/user-attachments/assets/c499ec63-f915-4258-aed3-fa48bf9b0fde)
